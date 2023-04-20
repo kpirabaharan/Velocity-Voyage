@@ -6,16 +6,18 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float runSpeed = 5f;
     private readonly float horizontalSpeed = 10f;
+    Rigidbody myRigidbody;
+    Animator animator;
 
     private float setOffset = 0;
     private bool rightPressed = false;
     private bool leftPressed = false;
 
-    Rigidbody myRigidbody;
 
     private void Start()
     {
         myRigidbody = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
@@ -41,21 +43,25 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.A) && setOffset == 0)
         {
             setOffset = -2;
+            animator.SetBool("isLeft", true);
             leftPressed = true;
         }
         else if (Input.GetKeyDown(KeyCode.A) && setOffset == 2)
         {
             setOffset = 0;
+            animator.SetBool("isLeft", true);
             leftPressed = true;
         }
         else if (Input.GetKeyDown(KeyCode.D) && setOffset == 0)
         {
             setOffset = 2;
+            animator.SetBool("isRight", true);
             rightPressed = true;
         }
         else if (Input.GetKeyDown(KeyCode.D) && setOffset == -2)
         {
             setOffset = 0;
+            animator.SetBool("isRight", true);
             rightPressed = true;
         }
 
@@ -72,11 +78,13 @@ public class PlayerMovement : MonoBehaviour
         if(currentOffset > setOffset && rightPressed)
         {
             rightPressed = false;
+            animator.SetBool("isRight", false);
             Vector3 playerVelocity = new Vector3(0, myRigidbody.velocity.y, myRigidbody.velocity.z);
             myRigidbody.velocity = transform.TransformDirection(playerVelocity);
         }
         if (currentOffset < setOffset && leftPressed)
         {
+            animator.SetBool("isLeft", false);
             leftPressed = false;
             Vector3 playerVelocity = new Vector3(0, myRigidbody.velocity.y, myRigidbody.velocity.z);
             myRigidbody.velocity = transform.TransformDirection(playerVelocity);
