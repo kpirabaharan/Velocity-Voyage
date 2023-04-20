@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] float runSpeed = 5f;
-    private readonly float horizontalSpeed = 10f;
     Rigidbody myRigidbody;
     Animator animator;
+    [SerializeField] float runSpeed = 5f;
+    private readonly float horizontalSpeed = 10f;
+    public float jumpStrength = 20f;
 
     private float setOffset = 0;
     private bool rightPressed = false;
@@ -28,12 +29,32 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         MoveLeftandRight();
+        Jump();
     }
 
     private void RunForward()
     {
         Vector3 forwardMove = runSpeed * Time.fixedDeltaTime * transform.forward;
         myRigidbody.MovePosition(myRigidbody.position + forwardMove);
+    }
+
+    private void Jump()
+    {
+        float yPosition = transform.position.y;
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Vector3 jumpVelocity = new Vector3(myRigidbody.velocity.x, jumpStrength, myRigidbody.velocity.z);
+            myRigidbody.velocity = transform.TransformDirection(jumpVelocity);
+        }
+        if (yPosition > 0)
+        {
+            animator.SetBool("isJump", true);
+        }
+        else if (yPosition == 0)
+        {
+            animator.SetBool("isJump", false);
+        }
     }
 
     private void MoveLeftandRight()

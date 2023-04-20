@@ -524,31 +524,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runSpeed: 5
-  moveAction:
-    m_Name: Move
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: b6e6011c-d94e-44c1-aec4-e95748bb13f1
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 50922dbb-6de3-4bd6-8391-5b35214ccab6
-      m_Path: <Keyboard>/a
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 0
-    - m_Name: 
-      m_Id: a22e8429-9707-4ac4-8cd9-a355b309f3c2
-      m_Path: <Keyboard>/d
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 0
-    m_Flags: 0
+  jumpStrength: 15
 --- !u!136 &2023825760
 CapsuleCollider:
   m_ObjectHideFlags: 0
