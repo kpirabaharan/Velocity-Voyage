@@ -1,14 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float runSpeed = 5f;
-    //private float xOffset = 0f;
+    private readonly float horizontalSpeed = 10f;
 
-    Vector2 moveInput;
+    private float setOffset = 0;
+
     Rigidbody myRigidbody;
 
     private void Start()
@@ -18,26 +18,54 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector3 forwardMove = transform.forward * runSpeed * Time.fixedDeltaTime;
+        RunForward();
+    }
+
+    private void Update()
+    {
+        MoveLeftandRight();
+    }
+
+    private void RunForward()
+    {
+        Vector3 forwardMove = runSpeed * Time.fixedDeltaTime * transform.forward;
         myRigidbody.MovePosition(myRigidbody.position + forwardMove);
     }
 
-    // Update is called once per frame
-    private void Update()
+    private void MoveLeftandRight()
     {
-        Run();
-    }
+        float currentOffset = transform.position.x;
 
-    private void Run()
-    {
-        Vector3 playerVelocity = new Vector3(moveInput.x * runSpeed, myRigidbody.velocity.y, myRigidbody.velocity.z);
-        myRigidbody.velocity = transform.TransformDirection(playerVelocity);
-    }
+        if (Input.GetKeyDown(KeyCode.A) && setOffset == 0)
+        {
+            setOffset = -2;
+        }
+        else if (Input.GetKeyDown(KeyCode.A) && setOffset == 2)
+        {
+            setOffset = 0;
+        }
+        else if (Input.GetKeyDown(KeyCode.D) && setOffset == 0)
+        {
+            setOffset = 2;
+        }
+        else if (Input.GetKeyDown(KeyCode.D) && setOffset == -2)
+        {
+            setOffset = 0;
+        }
 
-
-    public void OnMove(InputValue value)
-    {
-        moveInput = value.Get<Vector2>();
-        Debug.Log("Move:");
+        if (currentOffset < setOffset)
+        {
+            Vector3 playerVelocity = new Vector3(horizontalSpeed, myRigidbody.velocity.y, myRigidbody.velocity.z);
+            myRigidbody.velocity = transform.TransformDirection(playerVelocity);
+            //Vector3 rightMove = horizontalSpeed * Time.fixedDeltaTime * transform.right;
+            //myRigidbody.MovePosition(myRigidbody.position + rightMove);
+        }
+        if (currentOffset > setOffset+0.2)
+        {
+            Vector3 playerVelocity = new Vector3(-horizontalSpeed, myRigidbody.velocity.y, myRigidbody.velocity.z);
+            myRigidbody.velocity = transform.TransformDirection(playerVelocity);
+            //Vector3 leftMove = -horizontalSpeed * Time.fixedDeltaTime * transform.right;
+            //myRigidbody.MovePosition(myRigidbody.position + leftMove);
+        }
     }
 }

@@ -6,7 +6,7 @@ public class CameraFollow : MonoBehaviour
 {
 
     public GameObject player;
-    private readonly float distanceFromPlayer = 5;
+    private readonly float distanceFromPlayer = 4;
     private readonly float height = 3;
     private readonly float rotationAngle = 30;
 
