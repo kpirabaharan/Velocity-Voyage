@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
     private readonly float horizontalSpeed = 10f;
 
     private float setOffset = 0;
+    private bool rightPressed = false;
+    private bool leftPressed = false;
 
     Rigidbody myRigidbody;
 
@@ -39,33 +41,45 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.A) && setOffset == 0)
         {
             setOffset = -2;
+            leftPressed = true;
         }
         else if (Input.GetKeyDown(KeyCode.A) && setOffset == 2)
         {
             setOffset = 0;
+            leftPressed = true;
         }
         else if (Input.GetKeyDown(KeyCode.D) && setOffset == 0)
         {
             setOffset = 2;
+            rightPressed = true;
         }
         else if (Input.GetKeyDown(KeyCode.D) && setOffset == -2)
         {
             setOffset = 0;
+            rightPressed = true;
         }
 
-        if (currentOffset < setOffset)
+        if (currentOffset < setOffset && rightPressed)
         {
             Vector3 playerVelocity = new Vector3(horizontalSpeed, myRigidbody.velocity.y, myRigidbody.velocity.z);
             myRigidbody.velocity = transform.TransformDirection(playerVelocity);
-            //Vector3 rightMove = horizontalSpeed * Time.fixedDeltaTime * transform.right;
-            //myRigidbody.MovePosition(myRigidbody.position + rightMove);
         }
-        if (currentOffset > setOffset+0.2)
+        if (currentOffset > setOffset && leftPressed)
         {
             Vector3 playerVelocity = new Vector3(-horizontalSpeed, myRigidbody.velocity.y, myRigidbody.velocity.z);
             myRigidbody.velocity = transform.TransformDirection(playerVelocity);
-            //Vector3 leftMove = -horizontalSpeed * Time.fixedDeltaTime * transform.right;
-            //myRigidbody.MovePosition(myRigidbody.position + leftMove);
+        }
+        if(currentOffset > setOffset && rightPressed)
+        {
+            rightPressed = false;
+            Vector3 playerVelocity = new Vector3(0, myRigidbody.velocity.y, myRigidbody.velocity.z);
+            myRigidbody.velocity = transform.TransformDirection(playerVelocity);
+        }
+        if (currentOffset < setOffset && leftPressed)
+        {
+            leftPressed = false;
+            Vector3 playerVelocity = new Vector3(0, myRigidbody.velocity.y, myRigidbody.velocity.z);
+            myRigidbody.velocity = transform.TransformDirection(playerVelocity);
         }
     }
 }
