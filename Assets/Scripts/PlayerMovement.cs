@@ -30,12 +30,23 @@ public class PlayerMovement : MonoBehaviour
     {
         MoveLeftandRight();
         Jump();
+        Slide();
     }
 
     private void RunForward()
     {
         Vector3 forwardMove = runSpeed * Time.fixedDeltaTime * transform.forward;
         myRigidbody.MovePosition(myRigidbody.position + forwardMove);
+    }
+
+    private void Slide()
+    {
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            animator.SetTrigger("Slide");
+            Vector3 stop = new Vector3(0, myRigidbody.velocity.y, myRigidbody.velocity.z);
+            myRigidbody.velocity = transform.TransformDirection(stop);
+        }
     }
 
     private void Jump()

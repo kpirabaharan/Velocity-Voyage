@@ -523,7 +523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd601d3d4b89e4706a750a9dc0bf640a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 5
+  runSpeed: 0
   jumpStrength: 15
 --- !u!136 &2023825760
 CapsuleCollider:
@@ -536,6 +536,6 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.38862836
-  m_Height: 1.8
+  m_Height: 1.795108
   m_Direction: 1
-  m_Center: {x: 0, y: 0.9, z: 0.03639084}
+  m_Center: {x: 0, y: 0.897554, z: 0.03639084}
