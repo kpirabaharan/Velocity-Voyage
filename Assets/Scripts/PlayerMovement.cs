@@ -6,9 +6,9 @@ public class PlayerMovement : MonoBehaviour
 {
     Rigidbody myRigidbody;
     Animator animator;
-    [SerializeField] float runSpeed = 5f;
+    public float runSpeed = 5f;
     private readonly float horizontalSpeed = 10f;
-    public float jumpStrength = 20f;
+    public float jumpStrength = 6f;
 
     private float setOffset = 0;
     private bool rightPressed = false;
