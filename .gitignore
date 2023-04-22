@@ -74,3 +74,9 @@ crashlytics-build.properties
 # Player Assets
 Assets/Player/
 Assets/TerrainSampleAssets/
+Assets/GrassFlowers/
+Assets/Conifers_BOTD/
+Assets/ADG_Textures/
+Assets/Conifers_BOTD.meta
+Assets/ADG_Textures.meta
+Assets/GrassFlowers.meta
