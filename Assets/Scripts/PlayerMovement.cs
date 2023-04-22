@@ -58,11 +58,11 @@ public class PlayerMovement : MonoBehaviour
             Vector3 jumpVelocity = new Vector3(myRigidbody.velocity.x, jumpStrength, myRigidbody.velocity.z);
             myRigidbody.velocity = transform.TransformDirection(jumpVelocity);
         }
-        if (yPosition > 0)
+        if (yPosition >= 0.1)
         {
             animator.SetBool("isJump", true);
         }
-        else if (yPosition == 0)
+        else if (yPosition < 0.1)
         {
             animator.SetBool("isJump", false);
         }
