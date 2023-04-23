@@ -217,51 +217,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &821540969
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 821540971}
-  - component: {fileID: 821540970}
-  m_Layer: 0
-  m_Name: LogSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &821540970
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 821540969}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f37e357750084349bae5323c1eb305d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  logObstacle: {fileID: 0}
---- !u!4 &821540971
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 821540969}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.6451118, y: 2.4721107, z: 6.408878}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -448,6 +403,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groudTile: {fileID: 8771214453031497734, guid: 6652e5cbbf30d451090fa30085ba32d9, type: 3}
   logObstacle: {fileID: 4447184192826733678, guid: 73bbb2a7ee24445c1aaf7b4ce6dba1d4, type: 3}
+  treeObstacle: {fileID: 9108289555676914629, guid: 74d02f911b6de4d679dc05897816118b, type: 3}
 --- !u!4 &1188599821
 Transform:
   m_ObjectHideFlags: 0

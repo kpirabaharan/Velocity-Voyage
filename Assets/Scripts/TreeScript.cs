@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class LogScript : MonoBehaviour
+public class TreeScript : MonoBehaviour
 {
     PlayerMovement playerMovement;
 
