@@ -370,6 +370,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Runner
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 227bb0482fd4d4f7db0358a8eb63e508, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1172324090021531726, guid: 227bb0482fd4d4f7db0358a8eb63e508, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 1022625529149906712, guid: 227bb0482fd4d4f7db0358a8eb63e508, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 227bb0482fd4d4f7db0358a8eb63e508, type: 3}
 --- !u!1 &1188599819
@@ -403,7 +411,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groudTile: {fileID: 8771214453031497734, guid: 6652e5cbbf30d451090fa30085ba32d9, type: 3}
   logObstacle: {fileID: 4447184192826733678, guid: 73bbb2a7ee24445c1aaf7b4ce6dba1d4, type: 3}
-  treeObstacle: {fileID: 9108289555676914629, guid: 74d02f911b6de4d679dc05897816118b, type: 3}
+  treeObstacle: {fileID: 381126665310971389, guid: d94a11121b74e4bae936b7c9dc5308c5, type: 3}
 --- !u!4 &1188599821
 Transform:
   m_ObjectHideFlags: 0

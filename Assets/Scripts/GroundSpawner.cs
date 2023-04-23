@@ -28,7 +28,7 @@ public class GroundSpawner : MonoBehaviour
         {
             SpawnTile();
             SpawnLog();
-            SpawnTrees();
+            SpawnTree();
         }
     }
 
@@ -49,7 +49,7 @@ public class GroundSpawner : MonoBehaviour
         nextLogSpawnPoint = new Vector3(randomX, 0, log.transform.position.z + 20);
     }
 
-    public void SpawnTrees()
+    public void SpawnTree()
     {
         int randomX;
         if (Random.value < 0.5f)
