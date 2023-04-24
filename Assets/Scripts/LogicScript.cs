@@ -18,7 +18,7 @@ public class LogicScript : MonoBehaviour
     private void FixedUpdate()
     {
         if(!isGameOver)
-            IncrementScore();
+            ConstantScoreIncrement(10);
     }
 
     // Update is called once per frame
@@ -29,9 +29,14 @@ public class LogicScript : MonoBehaviour
             OnGameOver();
     }
 
-    private void IncrementScore()
+    public void IncrementScore(int value)
     {
-        score += Time.deltaTime * 10;
+        score += value;
+    }
+
+    private void ConstantScoreIncrement(int value)
+    {
+        score += Time.deltaTime * value;
     }
 
     public void SetIsGameOver()
