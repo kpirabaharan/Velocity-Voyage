@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    LogicScript logicScript;
+
     Rigidbody myRigidbody;
     Animator animator;
     public float runSpeed = 5f;
@@ -15,20 +17,25 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        logicScript = GameObject.FindObjectOfType<LogicScript>();
         myRigidbody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
     {
-        RunForward();
+        if(!logicScript.isGameOver)
+            RunForward();
     }
 
     private void Update()
     {
-        MoveLeftandRight();
-        Jump();
-        Slide();
+        if (!logicScript.isGameOver)
+        {
+            MoveLeftandRight();
+            Jump();
+            Slide();
+        }
     }
 
     private void RunForward()
@@ -48,21 +55,12 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void Jump()
-    {
-        float yPosition = transform.position.y;
-
+    { 
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            animator.SetTrigger("Jump");
             Vector3 jumpVelocity = new Vector3(myRigidbody.velocity.x, jumpStrength, myRigidbody.velocity.z);
             myRigidbody.velocity = transform.TransformDirection(jumpVelocity);
-        }
-        if (yPosition >= 0.1)
-        {
-            animator.SetBool("isJump", true);
-        }
-        else if (yPosition < 0.1)
-        {
-            animator.SetBool("isJump", false);
         }
     }
 
