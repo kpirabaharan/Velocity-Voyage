@@ -1,7 +1,6 @@
 using UnityEngine;
 using TMPro;
 
-
 public class LogicScript : MonoBehaviour
 {
     private float score;

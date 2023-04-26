@@ -634,6 +634,52 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1012023756
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1012023758}
+  - component: {fileID: 1012023759}
+  m_Layer: 0
+  m_Name: ObstacleSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1012023758
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1012023756}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.2558901, y: 1.0424647, z: 8.62808}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1012023759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1012023756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e6c587710174b6e98343ee1c60168a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  logObstacle: {fileID: 4447184192826733678, guid: 73bbb2a7ee24445c1aaf7b4ce6dba1d4, type: 3}
+  treeObstacle: {fileID: 381126665310971389, guid: d94a11121b74e4bae936b7c9dc5308c5, type: 3}
 --- !u!1001 &1026131847
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -729,8 +775,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groudTile: {fileID: 8771214453031497734, guid: 6652e5cbbf30d451090fa30085ba32d9, type: 3}
-  logObstacle: {fileID: 4447184192826733678, guid: 73bbb2a7ee24445c1aaf7b4ce6dba1d4, type: 3}
-  treeObstacle: {fileID: 381126665310971389, guid: d94a11121b74e4bae936b7c9dc5308c5, type: 3}
 --- !u!4 &1188599821
 Transform:
   m_ObjectHideFlags: 0
