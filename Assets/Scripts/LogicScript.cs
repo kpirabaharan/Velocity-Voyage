@@ -4,14 +4,28 @@ using TMPro;
 public class LogicScript : MonoBehaviour
 {
     private float score;
+    private float highScore;
     public bool isGameOver = false;
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI highScoreText;
     public GameObject gameOverScreen;
 
     // Start is called before the first frame update
     private void Start()
     {
         scoreText.text = "Score: " + score.ToString("F0");
+    }
+
+    private void OnEnable()
+    {
+        if (PlayerPrefs.HasKey("HighScore"))
+        {
+            highScoreText.text = "Highscore: " + PlayerPrefs.GetFloat("HighScore").ToString("F0");
+        }
+        else
+        {
+            highScoreText.text = "";
+        }
     }
 
     private void FixedUpdate()
@@ -46,5 +60,23 @@ public class LogicScript : MonoBehaviour
     private void OnGameOver()
     {
         gameOverScreen.SetActive(true);
+        SavePrefs();
+    }
+
+    private void SavePrefs()
+    {
+        // Set player prefs of HighScore with playerscore
+        if (PlayerPrefs.HasKey("HighScore"))
+        {
+            highScore = PlayerPrefs.GetFloat("HighScore");
+            if (highScore < score)
+            {
+                PlayerPrefs.SetFloat("HighScore", score);
+            }
+        }
+        else
+        {
+            PlayerPrefs.SetFloat("HighScore", score);
+        }
     }
 }

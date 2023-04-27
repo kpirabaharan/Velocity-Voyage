@@ -8,7 +8,7 @@ public class CoinSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        nextSpawnPoint = new Vector3(0, 1, 25);
+        nextSpawnPoint = new Vector3(0, 1, 22);
         SpawnFiveCoins();
     }
 
