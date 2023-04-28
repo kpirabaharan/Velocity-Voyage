@@ -1,13 +1,15 @@
 using UnityEngine;
 
-public class DestroyCoin : MonoBehaviour
+public class CollectCoin : MonoBehaviour
 {
+    LogicScript logicScript;
     CoinSpawner coinSpawner;
 
     public GameObject coin;
 
     private void Start()
     {
+        logicScript = GameObject.FindObjectOfType<LogicScript>();
         coinSpawner = GameObject.FindObjectOfType<CoinSpawner>();
     }
 
@@ -15,6 +17,7 @@ public class DestroyCoin : MonoBehaviour
     {
         coinSpawner.SetNextSpawnPoint(coin);
         coinSpawner.SpawnCoin();
-        Destroy(coin, 1);
+        logicScript.IncrementScore(5);
+        Destroy(coin);
     }
 }

@@ -35,10 +35,9 @@ public class ObstacleSpawner : MonoBehaviour
         nextLogTreeSpawnPoint = new Vector3(randomXLogTree, 0, 20);
 
         for (int i = 0; i < 10; i++)
-        {
             SpawnLog();
+        for (int i = 0; i < 9; i++)
             SpawnTree();
-        }
     }
 
     public void SpawnLog()
