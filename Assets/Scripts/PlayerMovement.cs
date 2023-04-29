@@ -35,6 +35,27 @@ public class PlayerMovement : MonoBehaviour
             MoveLeftandRight();
             Jump();
             Slide();
+            IncreaseSpeed();
+        }
+    }
+
+    private void IncreaseSpeed()
+    {
+        if (myRigidbody.transform.position.z < 500)
+        {
+            runSpeed = 5f;
+        }
+        else if(myRigidbody.transform.position.z < 1000)
+        {
+            runSpeed = 7.5f;
+        }
+        else if(myRigidbody.transform.position.z < 2000)
+        {
+            runSpeed = 10f;
+        }
+        else
+        {
+            runSpeed = 12.5f;
         }
     }
 
