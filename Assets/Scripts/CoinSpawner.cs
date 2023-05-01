@@ -2,41 +2,36 @@ using UnityEngine;
 
 public class CoinSpawner : MonoBehaviour
 {
-    public GameObject coin;
+    public GameObject coins;
     Vector3 nextSpawnPoint;
 
     // Start is called before the first frame update
     private void Start()
     {
-        nextSpawnPoint = new Vector3(0, 1, 23);
-        for (int i = 0; i < 9; i++)
-        {
-            SpawnFiveCoins();
-        }
-    }
+        int randomX = Random.Range(0, 3);
 
-    public void SpawnFiveCoins()
-    {
-        for (int i = 0; i < 5; i++)
+        int[] xValues = new int[] { -2, 0, 2 };
+
+        int xPosition = xValues[randomX];
+
+        nextSpawnPoint = new Vector3(xPosition, 1, 23);
+
+        for (int i = 0; i < 10; i++)
         {
-            int randomX = Random.Range(0, 3);
-            GameObject spawnedCoin = Instantiate(coin, nextSpawnPoint, Quaternion.identity);
-            if (i == 4)
-            {
-                nextSpawnPoint = new Vector3(0, 1, spawnedCoin.transform.position.z + 16);
-                continue;
-            }
-            nextSpawnPoint = new Vector3(0, 1, spawnedCoin.transform.position.z + 1);
+            SpawnCoin();
         }
     }
 
     public void SpawnCoin()
     {
-        GameObject spawnedCoin = Instantiate(coin, nextSpawnPoint, Quaternion.identity);
-    }
+        GameObject spawnedCoin = Instantiate(coins, nextSpawnPoint, Quaternion.identity);
 
-    public void SetNextSpawnPoint(GameObject coin)
-    {
-        nextSpawnPoint = new Vector3(0, 1, coin.transform.position.z + 180);
+        int randomX = Random.Range(0, 3);
+
+        int[] xValues = new int[] { -2, 0, 2 };
+
+        int xPosition = xValues[randomX];
+
+        nextSpawnPoint = new Vector3(xPosition, 1, spawnedCoin.transform.position.z + 10);
     }
 }
