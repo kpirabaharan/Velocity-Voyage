@@ -6,9 +6,9 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody myRigidbody;
     Animator animator;
-    public float runSpeed = 5f;
+    public float runSpeed;
     private readonly float horizontalSpeed = 10f;
-    public float jumpStrength = 6f;
+    public float jumpStrength;
 
     private float setOffset = 0;
     private bool rightPressed = false;
@@ -44,18 +44,26 @@ public class PlayerMovement : MonoBehaviour
         if (myRigidbody.transform.position.z < 500)
         {
             runSpeed = 5f;
+            jumpStrength = 5f;
+            Physics.gravity = new Vector3(0, -9.81F, 0);
         }
-        else if(myRigidbody.transform.position.z < 1000)
+        else if (myRigidbody.transform.position.z < 1000)
         {
             runSpeed = 7.5f;
+            jumpStrength = 6.67f;
+            Physics.gravity = new Vector3(0, -14.715F, 0);
         }
-        else if(myRigidbody.transform.position.z < 2000)
+        else if (myRigidbody.transform.position.z < 2000)
         {
             runSpeed = 10f;
+            jumpStrength = 7.33f;
+            Physics.gravity = new Vector3(0, -19.62F, 0);
         }
         else
         {
             runSpeed = 12.5f;
+            jumpStrength = 8f;
+            Physics.gravity = new Vector3(0, -24.525F, 0);
         }
     }
 
