@@ -85,7 +85,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     { 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && myRigidbody.position.y < 0.1)
         {
             animator.SetTrigger("Jump");
             Vector3 jumpVelocity = new Vector3(myRigidbody.velocity.x, jumpStrength, myRigidbody.velocity.z);
