@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class LogicScript : MonoBehaviour
@@ -12,6 +14,13 @@ public class LogicScript : MonoBehaviour
 
     // Start is called before the first frame update
     private void Start()
+    {
+        print("Logic Test");
+        scoreText.text = "Score: " + score.ToString("F0");
+    }
+
+    // Update is called once per frame
+    private void Update()
     {
         scoreText.text = "Score: " + score.ToString("F0");
     }
@@ -28,19 +37,17 @@ public class LogicScript : MonoBehaviour
         }
     }
 
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
     private void FixedUpdate()
     {
         if(!isGameOver)
             ConstantScoreIncrement(10);
     }
 
-    // Update is called once per frame
-    private void Update()
-    {
-        scoreText.text = "Score: " + score.ToString("F0");
-        if (isGameOver)
-            OnGameOver();
-    }
 
     public void IncrementScore(int value)
     {
@@ -52,13 +59,9 @@ public class LogicScript : MonoBehaviour
         score += Time.deltaTime * value;
     }
 
-    public void SetIsGameOver()
+    public void OnGameOver()
     {
         isGameOver = true;
-    }
-
-    private void OnGameOver()
-    {
         gameOverScreen.SetActive(true);
         SavePrefs();
     }

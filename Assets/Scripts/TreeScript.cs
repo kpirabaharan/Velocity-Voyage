@@ -15,6 +15,6 @@ public class TreeScript : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         playerMovement.runSpeed = 0;
-        logicScript.SetIsGameOver();
+        logicScript.OnGameOver();
     }
 }
