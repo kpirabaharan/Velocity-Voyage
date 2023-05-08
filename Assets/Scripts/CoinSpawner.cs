@@ -14,7 +14,7 @@ public class CoinSpawner : MonoBehaviour
 
         int xPosition = xValues[randomX];
 
-        nextSpawnPoint = new Vector3(xPosition, 1, 22);
+        nextSpawnPoint = new Vector3(xPosition, 1, 23);
 
         for (int i = 0; i < 10; i++)
         {
